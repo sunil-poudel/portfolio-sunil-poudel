@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {PortfolioServices} from '../shared/portfolio.services';
 
 @Component({
   selector: 'app-menu',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './menu.css'
 })
 export class Menu {
+  portfolioServices = inject(PortfolioServices);
 
 }
