@@ -9,9 +9,13 @@ import {PortfolioServices} from '../shared/portfolio.services';
 })
 export class Menu {
   portfolioServices = inject(PortfolioServices);
+  activeMenu = 'about';
 
   onClickMenuOptions(menu: 'about'|'skills'|'home'){
     this.portfolioServices.currentClickStatus.set(menu);
     console.log(this.portfolioServices.currentClickStatus());
+
+    this.activeMenu = menu;
   }
+
 }

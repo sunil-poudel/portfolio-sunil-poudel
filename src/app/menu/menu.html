@@ -1,8 +1,8 @@
 <div class="menu-control">
-  <div class="menu" (click)="onClickMenuOptions('about')">
+  <div class="menu" (click)="onClickMenuOptions('about')" [class.active]="activeMenu=='about'">
     <p>About</p>
   </div>
-  <div class="menu" (click)="onClickMenuOptions('skills')">
+  <div class="menu" (click)="onClickMenuOptions('skills')" [class.active]="activeMenu=='skills'">
     <p>Skills</p>
   </div>
 </div>
