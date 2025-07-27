@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {PortfolioServices} from '../shared/portfolio.services';
 
 @Component({
   selector: 'app-body',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './body.css'
 })
 export class Body {
-
+  portfolioServices = inject(PortfolioServices);
 }
