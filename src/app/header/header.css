@@ -1,0 +1,102 @@
+/* header.component.css - Split layout: text left half, image right half, centered vertically */
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Left half - text block */
+.header-text {
+  flex: 1 1 45%;
+  text-align: left;
+  color: #222222;
+  min-width: 280px;
+}
+
+.header-text h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.header-text h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #555555;
+  margin: 0;
+}
+
+/* Right half - image */
+.header-image {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 280px;
+}
+
+.header-image img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+/* Hover effect on image */
+.header-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    max-width: 100%;
+    gap: 1.5rem;
+  }
+
+  .header-text, .header-image {
+    flex: 1 1 100%;
+    min-width: auto;
+    text-align: center;
+  }
+
+  .header-text h1 {
+    font-size: 2rem;
+  }
+
+  .header-text h2 {
+    font-size: 1rem;
+    color: #444;
+  }
+
+  .header-image img {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-text h1 {
+    font-size: 1.75rem;
+  }
+
+  .header-text h2 {
+    font-size: 0.9rem;
+  }
+
+  .header-image img {
+    width: 110px;
+    height: 110px;
+  }
+}
