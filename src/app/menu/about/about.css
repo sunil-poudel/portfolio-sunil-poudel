@@ -1,32 +1,36 @@
+/* Responsive about page: show side-by-side on desktop;
+on small screens show one card at a time with visible scrollbar for horizontal scroll */
 
 .about-container {
   max-width: 900px;
-  margin: 2rem auto;
+  margin: 2rem auto 3rem;
   display: flex;
   gap: 2rem;
-  overflow-x: auto; /* enable horizontal scroll */
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 1rem; /* space for scroll bar */
+  flex-wrap: nowrap;
+  position: relative;
 }
 
-/* Each card snaps in place */
+/* Cards styling */
 .about-text-card,
 .about-image-card {
-  flex: 0 0 80vw; /* about 80% viewport width */
-  max-width: 450px;
+  flex: 1 1 45%;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   padding: 2rem;
-  scroll-snap-align: center;
-  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  color: #222222;
   cursor: default;
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
 }
 
-/* Image card adjustments */
+.about-text-card:hover,
+.about-image-card:hover {
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 0 15px #a3c9f1;
+  transform: translateY(-6px);
+}
+
 .about-image-card {
-  padding: 0; /* no padding for image container */
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,32 +44,44 @@
   transition: transform 0.3s ease;
 }
 
-.about-text-card:hover,
-.about-image-card:hover {
-  box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 0 15px #a3c9f1;
-  transform: translateY(-6px);
-}
-
 .about-image-card:hover img {
   transform: scale(1.05);
 }
 
-/* Hide scrollbar for WebKit browsers */
-.about-container::-webkit-scrollbar {
-  display: none;
-}
-
-/* Responsive desktop fallback: side by side with normal flex */
-@media (min-width: 769px) {
+/* MOBILE: show cards in horizontal scroll with visible scrollbar */
+@media (max-width: 768px) {
   .about-container {
-    flex-wrap: nowrap;
-    overflow-x: visible;
-    padding-bottom: 0;
+    overflow-x: auto;
+    scroll-snap-type: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
   }
 
   .about-text-card,
   .about-image-card {
-    flex: 1 1 45%;
+    flex: 0 0 90vw; /* show only one card at a time */
     max-width: none;
+    margin: 0;
+  }
+
+  /* Show horizontal scrollbar */
+  .about-container::-webkit-scrollbar {
+    display: block;
+    height: 8px;
+  }
+  .about-container::-webkit-scrollbar-track {
+    background: #eee;
+    border-radius: 4px;
+  }
+  .about-container::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 4px;
+  }
+}
+
+/* On desktop, no scrollbar, side by side */
+@media (min-width: 769px) {
+  .about-container::-webkit-scrollbar {
+    display: none;
   }
 }
