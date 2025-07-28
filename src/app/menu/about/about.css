@@ -1,0 +1,74 @@
+/* about.component.css - Separate card style for text and image with glow and hover transition */
+
+.about-container {
+  display: flex;
+  max-width: 900px;
+  margin: 2rem auto;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Text card */
+.about-text-card {
+  flex: 1 1 400px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  color: #222222;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+.about-text-card:hover {
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 0 15px #a3c9f1;
+  transform: translateY(-6px);
+}
+
+/* Image card */
+.about-image-card {
+  flex: 1 1 320px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image-card:hover {
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 0 15px #a3c9f1;
+  transform: translateY(-6px);
+}
+
+.about-image-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.about-image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    max-width: 90%;
+    gap: 1.5rem;
+  }
+
+  .about-text-card,
+  .about-image-card {
+    flex: 1 1 100%;
+  }
+}
