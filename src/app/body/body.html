@@ -2,8 +2,11 @@
   @if(portfolioServices.currentClickStatus() === 'about'){
     <app-about/>
   }
-  @if(portfolioServices.currentClickStatus() === 'skills'){
+  @else if(portfolioServices.currentClickStatus() === 'skills'){
     <app-skills/>
+  }
+  @else if(portfolioServices.currentClickStatus() === 'projects'){
+    <app-projects/>
   }
 
 </div>
