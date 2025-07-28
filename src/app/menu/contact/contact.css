@@ -1,0 +1,175 @@
+/* Contact section container */
+.contact-control {
+  max-width: 800px;
+  /*margin: 3rem auto;*/
+  /*padding: 2rem 1rem;*/
+  text-align: center;
+}
+
+.contact-control h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222222;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Contact cards container */
+.contact-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Individual contact card */
+.contact {
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.5rem;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Contact image styling - Fixed sizing and centering */
+.contact img {
+  width: 48px; /* Reduced from 60px */
+  height: 48px; /* Reduced from 60px */
+  object-fit: contain;
+  object-position: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.contact img:hover {
+  transform: scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* Contact link styling - Fixed clickability */
+.contact a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #667eea;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 4px;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact a:hover {
+  color: #764ba2;
+  text-decoration-color: #764ba2;
+  transform: translateY(-2px);
+}
+
+/* Email text styling (for non-link text) */
+.contact p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin: 0;
+  word-break: break-all;
+  position: relative;
+}
+
+/* Special styling for different contact types */
+.contact:nth-child(1) {
+  border-left: 4px solid #0077b5; /* LinkedIn blue */
+}
+
+.contact:nth-child(2) {
+  border-left: 4px solid #333; /* GitHub dark */
+}
+
+.contact:nth-child(3) {
+  border-left: 4px solid #ea4335; /* Gmail red */
+}
+
+/* Pulse animation for email */
+.contact:nth-child(3) img:hover {
+  animation: emailPulse 2s infinite;
+}
+
+@keyframes emailPulse {
+  0%, 100% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 30px rgba(234, 67, 53, 0.3); }
+  50% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 40px rgba(234, 67, 53, 0.5); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .contact-control {
+    margin: 2rem auto;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .contact-control h3 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  .contact-cards-container {
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .contact {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+  }
+
+  .contact img {
+    width: 40px; /* Reduced from 50px */
+    height: 40px; /* Reduced from 50px */
+    margin-bottom: 1rem;
+  }
+
+  .contact a,
+  .contact p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-control h3 {
+    font-size: 1.4rem;
+  }
+
+  .contact {
+    padding: 1.2rem 0.8rem;
+    border-radius: 16px;
+  }
+
+  .contact img {
+    width: 36px; /* Reduced from 45px */
+    height: 36px; /* Reduced from 45px */
+  }
+
+  .contact a,
+  .contact p {
+    font-size: 0.9rem;
+  }
+}
