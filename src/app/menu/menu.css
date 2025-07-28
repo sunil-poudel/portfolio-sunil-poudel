@@ -1,8 +1,9 @@
+/* Updated menu.component.css for exactly 3 menus per line on mobile */
 
 .menu-control {
   display: flex;
   justify-content: center;
-  background-color: #d9d9d9; /* light grey background, distinct from page */
+  background-color: #d9d9d9;
   padding: 0.75rem 1rem;
   gap: 2rem;
   flex-wrap: wrap;
@@ -28,21 +29,24 @@
 }
 
 .menu.active {
-  background-color: #222222; /* dark background for active */
-  color: #f5f5f5; /* light text */
+  background-color: #222222;
+  color: #f5f5f5;
   box-shadow: 0 0 8px #666666;
 }
 
-/* Responsive: stack menu vertically on narrow screens */
 @media (max-width: 480px) {
   .menu-control {
-    flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    gap: 1.5rem 2rem;
+    flex-wrap: wrap;
+    max-width: 100%;
   }
 
+  /* Force exactly 3 items per row */
   .menu {
+    flex: 0 0 calc((100% / 3) - 1.5rem);
+    max-width: calc((100% / 3) - 1.5rem);
     min-width: auto;
-    width: 100%;
+    box-sizing: border-box;
   }
 }
-
