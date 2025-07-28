@@ -1,0 +1,10 @@
+
+.footer-bar {
+  background-color: #f8f8f8; /* very light grey */
+  color: #444444;            /* medium-dark text for contrast */
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  user-select: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* subtle inner shadow */
+}
