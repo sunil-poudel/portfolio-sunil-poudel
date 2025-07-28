@@ -1,74 +1,71 @@
-/* about.component.css - Separate card style for text and image with glow and hover transition */
 
 .about-container {
-  display: flex;
   max-width: 900px;
   margin: 2rem auto;
+  display: flex;
   gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  overflow-x: auto; /* enable horizontal scroll */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem; /* space for scroll bar */
 }
 
-/* Text card */
-.about-text-card {
-  flex: 1 1 400px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  color: #222222;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  transition: box-shadow 0.4s ease, transform 0.3s ease;
-  cursor: default;
-}
-
-.about-text-card:hover {
-  box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 0 15px #a3c9f1;
-  transform: translateY(-6px);
-}
-
-/* Image card */
+/* Each card snaps in place */
+.about-text-card,
 .about-image-card {
-  flex: 1 1 320px;
+  flex: 0 0 80vw; /* about 80% viewport width */
+  max-width: 450px;
   background-color: #ffffff;
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  padding: 2rem;
+  scroll-snap-align: center;
   transition: box-shadow 0.4s ease, transform 0.3s ease;
   cursor: default;
+}
+
+/* Image card adjustments */
+.about-image-card {
+  padding: 0; /* no padding for image container */
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.about-image-card:hover {
-  box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 0 15px #a3c9f1;
-  transform: translateY(-6px);
+  overflow: hidden;
 }
 
 .about-image-card img {
   width: 100%;
   height: auto;
-  object-fit: cover;
   border-radius: 12px;
   transition: transform 0.3s ease;
+}
+
+.about-text-card:hover,
+.about-image-card:hover {
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 0 15px #a3c9f1;
+  transform: translateY(-6px);
 }
 
 .about-image-card:hover img {
   transform: scale(1.05);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Hide scrollbar for WebKit browsers */
+.about-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive desktop fallback: side by side with normal flex */
+@media (min-width: 769px) {
   .about-container {
-    flex-direction: column;
-    max-width: 90%;
-    gap: 1.5rem;
+    flex-wrap: nowrap;
+    overflow-x: visible;
+    padding-bottom: 0;
   }
 
   .about-text-card,
   .about-image-card {
-    flex: 1 1 100%;
+    flex: 1 1 45%;
+    max-width: none;
   }
 }
