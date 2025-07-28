@@ -26,6 +26,26 @@
   word-wrap: break-word; /* wrap long words */
   box-sizing: border-box;
 }
+.about-text-card {
+  flex: 0 0 90vw; /* one card visible on mobile */
+  max-width: none;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  color: #222222;
+  cursor: default;
+  overflow: visible; /* prevent inner scroll */
+  white-space: normal; /* allow text wrap */
+  word-wrap: break-word; /* wrap long words */
+  box-sizing: border-box;
+
+  /* Center content vertically and horizontally */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 .about-text-card:hover,
 .about-image-card:hover {
