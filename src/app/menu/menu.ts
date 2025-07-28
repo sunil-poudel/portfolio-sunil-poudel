@@ -11,7 +11,7 @@ export class Menu {
   portfolioServices = inject(PortfolioServices);
   activeMenu = 'about';
 
-  onClickMenuOptions(menu: 'about'|'skills'|'projects'){
+  onClickMenuOptions(menu: 'about'|'skills'|'projects'|'contact'){
     this.portfolioServices.currentClickStatus.set(menu);
     console.log(this.portfolioServices.currentClickStatus());
 
