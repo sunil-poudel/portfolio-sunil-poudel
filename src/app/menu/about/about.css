@@ -1,6 +1,3 @@
-/* Responsive about page: show side-by-side on desktop;
-on small screens show one card at a time with visible scrollbar for horizontal scroll */
-
 .about-container {
   max-width: 900px;
   margin: 2rem auto 3rem;
@@ -8,24 +5,31 @@ on small screens show one card at a time with visible scrollbar for horizontal s
   gap: 2rem;
   flex-wrap: nowrap;
   position: relative;
+  overflow-x: auto; /* enable scroll on mobile */
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1rem;
 }
 
 /* Cards styling */
 .about-text-card,
 .about-image-card {
-  flex: 1 1 45%;
+  flex: 0 0 90vw; /* one card visible on mobile */
+  max-width: none;
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   color: #222222;
   cursor: default;
-  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  overflow: visible; /* prevent inner scroll */
+  white-space: normal; /* allow text wrap */
+  word-wrap: break-word; /* wrap long words */
+  box-sizing: border-box;
 }
 
 .about-text-card:hover,
 .about-image-card:hover {
-  box-shadow: 0 10px 28px rgba(0,0,0,0.22), 0 0 15px #a3c9f1;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22), 0 0 15px #a3c9f1;
   transform: translateY(-6px);
 }
 
@@ -34,7 +38,7 @@ on small screens show one card at a time with visible scrollbar for horizontal s
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow: hidden; /* clip image overflow */
 }
 
 .about-image-card img {
@@ -48,40 +52,30 @@ on small screens show one card at a time with visible scrollbar for horizontal s
   transform: scale(1.05);
 }
 
-/* MOBILE: show cards in horizontal scroll with visible scrollbar */
-@media (max-width: 768px) {
+/* Scrollbar styling */
+.about-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.about-container::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 4px;
+}
+
+.about-container::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 4px;
+}
+
+/* Desktop side-by-side layout */
+@media (min-width: 769px) {
   .about-container {
-    overflow-x: auto;
-    scroll-snap-type: none;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 1rem;
+    overflow-x: visible;
   }
 
   .about-text-card,
   .about-image-card {
-    flex: 0 0 90vw; /* show only one card at a time */
+    flex: 1 1 45%;
     max-width: none;
-    margin: 0;
-  }
-
-  /* Show horizontal scrollbar */
-  .about-container::-webkit-scrollbar {
-    display: block;
-    height: 8px;
-  }
-  .about-container::-webkit-scrollbar-track {
-    background: #eee;
-    border-radius: 4px;
-  }
-  .about-container::-webkit-scrollbar-thumb {
-    background: #bbb;
-    border-radius: 4px;
-  }
-}
-
-/* On desktop, no scrollbar, side by side */
-@media (min-width: 769px) {
-  .about-container::-webkit-scrollbar {
-    display: none;
   }
 }
