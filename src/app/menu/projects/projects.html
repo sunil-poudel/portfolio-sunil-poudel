@@ -1,14 +1,28 @@
-<div class="project-control">
-  <div class="project">
-    <p>To-do list</p>
-    <img src="assets/logos/to_do_list.jpg" alt="todo list logo"/>
-    <div class="project-actions">
-      <a href="https://todo-list-sunilpoudel.netlify.app/" target="_blank">View live</a>
-      <a href="https://github.com/sunil-poudel/to-do-list" target="_blank">View source</a>
+<div class="project-slider-container">
+  <button class="slider-arrow left-arrow" (click)="prevProject()">&#10094;</button>
+
+  <div class="slider-viewport">
+    <div class="slider-track" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      @for (project of projects; track project.title) {
+        <div class="project-slide">
+          <div class="project">
+            <p>{{ project.title }}</p>
+            <img [src]="project.image" [alt]="project.title + ' logo'"/>
+            <div class="project-actions">
+              <a [href]="project.liveLink" target="_blank">View live</a>
+              <a [href]="project.sourceLink" target="_blank">View source</a>
+            </div>
+            <div class="technologies-used">
+              @for (tech of project.technologies; track tech) {
+                <p>{{ tech }}</p>
+              }
+            </div>
+            <p>{{ project.description }}</p>
+          </div>
+        </div>
+      }
     </div>
-    <div class="technologies-used">
-      <p>Angular</p>
-    </div>
-    <p>Manage the tasks!</p>
   </div>
+
+  <button class="slider-arrow right-arrow" (click)="nextProject()">&#10095;</button>
 </div>

@@ -1,12 +1,61 @@
-/* Container for projects - centers content and wraps rows */
-.project-control {
+/* Container for the whole slider section */
+.project-slider-container {
   max-width: 1200px;
   margin: 2rem auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   padding: 1rem;
-  justify-items: center;
+  position: relative;
+}
+
+/* Arrow buttons */
+.slider-arrow {
+  background: rgba(90, 155, 246, 0.1);
+  color: #3a78f8;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.slider-arrow:hover {
+  background: #3a78f8;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Viewport for the slides */
+.slider-viewport {
+  overflow: hidden;
+  width: 100%;
+  max-width: 380px; /* Adjust based on card width + padding */
+  padding: 1rem 0; /* extra space for drop shadows */
+}
+
+/* The track that moves */
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+/* Individual slide wrapper */
+.project-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem; /* space for box-shadow hover */
 }
 
 /* Each project card styling */
@@ -138,10 +187,9 @@
 
 /* Responsive breakpoints */
 @media (max-width: 768px) {
-  .project-control {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    gap: 1.5rem;
+  .project-slider-container {
+    max-width: 100%;
+    gap: 0.5rem;
   }
 
   .project {
@@ -159,7 +207,7 @@
 }
 
 @media (max-width: 480px) {
-  .project-control {
+  .project-slider-container {
     padding: 0.5rem;
   }
 
